@@ -1,0 +1,44 @@
+#game-container {
+}
+
+#tic-tac-toe-board {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-self: center;
+    justify-content: center;
+    background: url("../images/tic-tac-toe-board.png") no-repeat center;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    flex: 0 0 30%;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 25px;
+    padding-bottom: 40px;
+    border: none;
+    font-family: 'Finger Paint', cursive;
+    font-size: 8em;
+    text-align: center;
+}
+.row {
+    margin-top: -10px;
+}
+
+.X {
+    color: red;
+}
+
+.O {
+    color: blue;
+}
+
+.square:hover {
+    background: #e1eeee;
+}
+
+.filled {
+
+}
