@@ -1,7 +1,6 @@
-import './App.css';
+import React from "react";
 import GameContainer from "./components/GameContainer";
-
-import React, {useState} from "react";
+import './App.css';
 
 function App() {
     return (
