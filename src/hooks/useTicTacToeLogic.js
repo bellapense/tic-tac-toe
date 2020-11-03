@@ -1,14 +1,9 @@
-import React, {useState, useEffect} from "react"
+import {useState, useEffect} from "react"
 
 /**
- * Hook that contains the logic for the tic-tac-toe game. Returns:
- * 1) a function getStatusBar that returns a component containing the game's "status bar" which contains the
- * current player move and undo button, or displays the result of a game and button to begin a new game.
- * 2) array containing the state of squares in the game board
- * 3) function to handle a click of a square to "make a move"
- * @returns {{getStatusBar: (function(): *), squares: any[], handleMove: (function(*): (undefined))}}
+ * Hook that contains
  */
-function useGameLogic () {
+function useTicTacToeLogic () {
     const [isPlayerX, setIsPlayerX] = useState(true);
     const [squares, setSquares] = useState(Array(9).fill(""));
     const [startNewGame, setStartNewGame] = useState(false);
@@ -69,9 +64,10 @@ function useGameLogic () {
             const [a, b, c] = lines[i];
             if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
                 return squares[a];
-            } else if (!squares.includes("")) {
-                return "tie";
             }
+        }
+        if (!squares.includes("")) {
+            return "tie";
         }
         return null;
     }
@@ -94,61 +90,15 @@ function useGameLogic () {
         setMoveHistory(previousMoves);
     }
 
-    //Button to start a new game
-    const playNewGame = (
-        <button
-            onClick={() => setStartNewGame(true)}
-        >
-            Play again?
-        </button>
-    );
-
-    /**
-     * Returns the game's status bar. Displays current player move and undo button (if there is a move that can
-     * be undone) or the result of a game and button to start a new game.
-     */
-    function getStatusBar () {
-        let undoButton = null;
-        if (moveHistory.length) {
-            undoButton = (
-                <button
-                    onClick={undoLastMove}
-                >
-                    Undo Move
-                </button>
-            );
-        }
-        const winner = calculateWinner(squares);
-        switch (winner) {
-            case "tie":
-                return (
-                    <React.Fragment>
-                        <p>Tie game!</p>
-                        {playNewGame}
-                    </React.Fragment>
-                );
-            case "X":
-            case "O":
-                return (
-                    <React.Fragment>
-                        <p>{winner} is the winner!</p>
-                        {playNewGame}
-                    </React.Fragment>
-                );
-            default:
-                return (
-                    <React.Fragment>
-                        <p>{isPlayerX ? "X's" : "O's"} turn!</p>
-                        {undoButton}
-                    </React.Fragment>
-
-                );
-        }
-    }
-
     return {
-        squares, handleMove, getStatusBar
+        squares,
+        handleMove,
+        isPlayerX,
+        undoLastMove,
+        setStartNewGame,
+        moveHistory,
+        calculateWinner
     };
 }
 
-export default useGameLogic
+export default useTicTacToeLogic

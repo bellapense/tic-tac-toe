@@ -1,0 +1,62 @@
+/* Sorry for hacky CSS, didn't want to spend too terribly long on this part of it */
+body {
+  margin: 0;
+  background: white url("../images/lined_paper.png");
+}
+
+.App {
+  margin-top: -2em;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Finger Paint', serif;
+  font-size: 4em;
+}
+
+#game-container {
+  margin-top: -3em;
+}
+
+button {
+  background: transparent;
+  font-family: 'Finger Paint', serif;
+  font-size: 1.5em;
+  margin-top: -20px;
+}
+
+#tic-tac-toe-board {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: url("../images/tic-tac-toe-board.png") no-repeat center;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  flex: 0 0 30%;
+  padding-bottom: 40px;
+  margin: -15px 25px 30px;
+  border: none;
+  font-family: 'Finger Paint', serif;
+  font-size: 8em;
+  text-align: center;
+}
+
+.X {
+  color: red;
+}
+
+.O {
+  color: blue;
+}
+
+span {
+  font-family: "Finger Paint", serif;
+}
+
+p {
+  font-size: 1.5em;
+}
